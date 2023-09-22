@@ -31,13 +31,22 @@ header {
 
 
 /* Navigation Styles */
+
+.sticky-nav {
+    top: 0;
+    position: sticky;
+    background-color: #222;
+    color: #fff;
+    padding: 2px 0;
+}
+
 nav ul {
     background-color: #222222;
     color: #fff;
     text-align: center;
     list-style-type: none;
     margin: 0;
-    padding: 20px;
+    padding: 2px;
 }
 
 nav li {
