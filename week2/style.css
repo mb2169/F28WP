@@ -66,6 +66,11 @@ nav a:hover {
     background-color: #505050;  /* Darker shade for hover */
 }
 
+/* Highlight button for active page */
+nav ul li.active a {
+    background-color: #505050;
+}
+
 /* Banner Styles */
 .banner-container {
     display: flex;
