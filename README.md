@@ -4,9 +4,14 @@ My github repository for F28WP lab
 This repository contains files for a website that will be used for lab sessions and tasks with continuous changes 
 
 link to 
-ver1 - https://mb2169.github.io/F28WP-lab1/week1/
+week11 - https://mb2169.github.io/F28WP-lab1/week1/
 
-ver2 - https://mb2169.github.io/F28WP-lab1/week2/
+week22 - https://mb2169.github.io/F28WP-lab1/week2/
+completed tasks
+added google fonts, center aligned text, added a sticky nav bar 
+which stays on page as users scroll down.
+currently active page is now highlighted in the nav bar
+
 
 week3 - https://mb2169.github.io/F28WP-lab1/week3/
 added slideshow for gallery images
