@@ -7,3 +7,6 @@ link to
 ver1 - https://mb2169.github.io/F28WP-lab1/week1/
 
 ver2 - https://mb2169.github.io/F28WP-lab1/week2/
+
+week3 - https://mb2169.github.io/F28WP-lab1/week3/
+added slideshow for gallery images
