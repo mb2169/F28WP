@@ -90,10 +90,14 @@
     <p >&copy; 2024 Wanderlust Voyages | Travel Agency. All rights reserved.</p>
   </footer>
  </div>
+
 <script>
-  let slideIndex = 1;
+  // var to track current slide
+  let slideIndex = 0;
 
   showSlides(slideIndex);
+
+  // function to navigate slides  
   function plusSlides(n){
     showSlides(slideIndex += n);
   }
@@ -104,31 +108,35 @@
 
   function showSlides(n) {
 
-  let i;
+    let i;
 
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
+    // get all slides by class name
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
 
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
+    // when end of slideshow is reached, cycle back to the first picture
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+    
+    // in a similar way if user clicks previous on the first slide, cycle around to the last slide
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
 
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
+    // by default, hide the slides 
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
 
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    
+    // display current slide 
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
 }
-
 
 </script>
 
