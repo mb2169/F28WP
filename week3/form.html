@@ -1,16 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Gallery - Wanderlust Voyages</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Form - Wanderlust Voyages</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+    /* Style for the form: setting width, auto margin for centering, padding,
+    background color, border radius for rounded corners, and font size */
+    #form {
+        width: 300px;
+        margin: 20vh auto 0 auto; /* This centers the form vertically and
+        horizontally */
+        padding: 20px;
+        background-color: whitesmoke; /* Light gray background for the form */
+        border-radius: 4px; /* Rounded corners for the form */
+        font-size: 12px;
+    }
+
+    /* Style for the form's heading: setting the text color and alignment */
+    #form h1 {
+        color: #0f2027; /* Dark text color for the heading */
+        text-align: center; /* Center-align the heading */
+    }
+
+    /* Style for the form's button: padding, top margin, full width, text color,
+    background color, no border, and rounded corners */
+    #form button {
+        padding: 10px;
+        margin-top: 10px; /* Space above the button */
+        width: 100%; /* Make the button expand the full width of the form */
+        color: white; /* White text color for the button */
+        background-color: rgb(41, 57, 194); /* Blue background color for the button
+        */
+        border: none; /* Remove the default border */
+        border-radius: 4px; /* Rounded corners for the button */
+    }
+
+    /* Container for input fields: using flexbox for layout, column direction */
+    .input-control {
+        display: flex;
+        flex-direction: column; /* Stack the children (label, input, error message)
+    vertically */
+    }
+    
+    /* Style for input fields inside the container: border style, rounded corners,
+    block-level display, font size, padding, full width */
+    .input-control input {
+        border: 2px solid #f0f0f0; /* Light gray border for the inputs */
+        border-radius: 4px; /* Rounded corners for the inputs */
+        display: block; /* Display input field as a block */
+        font-size: 12px; /* Text size within the input field */
+        padding: 10px; /* Space inside the input field */
+        width: 100%; /* Input field takes up 100% of the form's width */
+    }
+
+    /* Remove focus outline from input fields */
+    .input-control input:focus {
+        outline: 0; /* Remove outline when input is focused */
+    }
+
+    /* Style for input fields with class "success": green border */
+    .input-control.success input {
+        border-color: #09c372; /* Green border to indicate successful input */
+    }
+
+    /* Style for input fields with class "error": red border */
+    .input-control.error input {
+        border-color: #ff3860; /* Red border to indicate an error in input */
+    }
+
+    /* Style for the error message: text color, font size, and height */
+    .input-control .error {
+        color: #ff3860; /* Red text color for error messages */
+        font-size: 9px; /* Smaller font size for error messages */
+        height: 13px; /* Explicit height to ensure consistent spacing */
+    }
+
+    </style>
 </head>
 
 <body>
-    <form id="Form" action="/">
-        <div class="input-control"></div>
-        <label></label>
-    </form>
+
+<form id="form" action="/">
+    <div class="input-control">
+        <label for="username">Username: </label>
+        <input type="text" id="username" name="username">
+        <div class="error"></div>
+    </div>
+    <div class="input-control">
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email">
+        <div class="error"></div>
+    </div>
+    <div class="input-control">
+        <label for="password">Password: </label>
+        <input type="password" id="password" name="password">
+        <div class="error"></div>
+    </div>
+    <div class="input-control">
+        <label for="confirmPassword">Confirm Password: </label>
+        <input type="password" id="confirmPassword" name="confirmPassword">
+        <div class="error"></div>
+    </div>
+    <button type="submit" value="Submit">Submit</button>
+</form>
+
+<script>
+    // variables for all form elements
+    const form = document.getElementById("form");
+    const username = document.getElementById("username");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+
+    // event listener for submit event
+    form.addEventListener("submit", event => {
+        // prevent form submission and page refresh
+        event.preventDefault(); 
+
+        validateInputs(); 
+    });
+
+    // display error message and error style
+    const setError = (element, message) => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector(".error");
+
+        errorDisplay.innerText = message;
+        inputControl.classList.add("error");
+        inputControl.classList.remove("success");
+    }
+
+    // indicate successful input by applying success style
+    const setSuccess = element => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector(".error");
+
+        errorDisplay.innerText = "";
+        inputControl.classList.add("success");
+        inputControl.classList.remove("error");
+    }
+
+    // function to validate all form inputs to criteria
+    const validateInputs = () => {
+        const usernameValue = username.value.trim()
+        const emailValue = email.value.trim()
+        const passwordValue = password.value.trim()
+        const confirmPasswordValue = confirmPassword.value.trim()
+
+        // standard regex for email validation I used from google
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+        // username cannot be empty
+        if (usernameValue === "") {
+            setError(username, "username required");
+        } else {
+            setSuccess(username);
+        }
+
+        // Validate email using a standard email regular expression
+        // email cannot be empty and must follow standard format
+        if (emailValue === "") {
+            setError(email, "email required");
+            // test method to compare email to regex pattern
+        } else if (!emailPattern.test(emailValue)) {
+            setError(email, "invalid email");
+        } else {
+            setSuccess(email);
+        }
+
+        // password cannot be empty and must be at least 8 characters
+        if (passwordValue === "") {
+            setError(password, "password required");
+        } else if (passwordValue.length < 8) {
+            setError(password, "password must be at least 8 characters");
+        } else {
+            setSuccess(password);
+        }
+
+        // confirm password input must match original password
+        if (confirmPasswordValue === "") {
+            setError(confirmPassword, "confirm your password");
+        } else if (confirmPasswordValue != passwordValue) {
+            setError(confirmPassword, "passwords do not match!");
+        } else {
+            setSuccess(confirmPassword);
+        }
+    }
+    
+</script>
+
+
 </body>
-</html>
