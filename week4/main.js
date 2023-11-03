@@ -1,20 +1,6 @@
-var myCities = [
-    {
-        "name":"Dubai",
-        "country":"UAE",
-        "place":"Dubai Mall"
-    },
-    {
-        "name":"Milan",
-        "country":"Italy",
-        "place":"Duomo Di Milano"
-    },
-    {
-        "name":"Abu Dhabi",
-        "country":"UAE",
-        "place":"Marina Mall"
-    }
-];
-
-console.log(myCities[1].country);
-    
+var ourRequest = new XMLHttpRequest();
+ourRequest.open('GET', 'https://mb2169.github.io/F28WP-lab1/cities1.json');
+ourRequest.onload = function() {
+console.log(ourRequest.responseText);
+};
+ourRequest.send();
