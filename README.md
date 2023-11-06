@@ -1,4 +1,4 @@
-# F28WP-lab1
+# F28WP
 
 My github repository for F28WP lab
 This repository contains files for a website that will be used for lab sessions and tasks with continuous changes 
