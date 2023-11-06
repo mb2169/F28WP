@@ -5,16 +5,16 @@ This repository contains files for a website that will be used for lab sessions 
 
 link to 
 
-week1 - https://mb2169.github.io/F28WP-lab1/week1/
+week1 - https://mb2169.github.io/F28WP/week1/
 
-week2 - https://mb2169.github.io/F28WP-lab1/week2/
+week2 - https://mb2169.github.io/F28WP/week2/
 
 - completed tasks
 - added google fonts, center aligned text, added a sticky nav bar which stays on page as users scroll down.
 - currently active page is now highlighted in the nav bar
 
 
-week3 - https://mb2169.github.io/F28WP-lab1/week3/
+week3 - https://mb2169.github.io/F28WP/week3/
 
 - added slideshow for gallery images
 - added form validation in form.html
@@ -25,5 +25,13 @@ by adding z-index: 1 in the sticky nav bar properties to ensure that the nav bar
 above the other elements on the page.
 
 Added form validation using regular expressions to check if email input matched standard format
+
+
+week4 - https://mb2169.github.io/F28WP/week4/
+
+Separate task using JSON to store data about cities and AJAX technique to fetch data from json file onto webpage without reloading page
+
+
+
 
 
