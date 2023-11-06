@@ -34,7 +34,7 @@ Separate task using JSON to store data about cities and AJAX technique to fetch 
 week4-2 - https://mb2169.github.io/F28WP/week4-2/
 
 Created weather information API. Using ajax to send http request to openweathermap API to fetch weather data for input city in JSON format.
-Extract weather information description, temperature and wind speed from JSON document and dispaly with html string.
+Extract weather information description, temperature and wind speed from JSON document and display with html string.
 
 
 
