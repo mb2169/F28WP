@@ -3,7 +3,7 @@ var btn = document.getElementById("btn");
 btn.addEventListener("click", function(){
 
     var ourRequest = new XMLHttpRequest();
-    ourRequest.open('GET', 'https://mb2169.github.io/F28WP-lab1/cities1.json');
+    ourRequest.open('GET', 'https://mb2169.github.io/F28WP/cities1.json');
     ourRequest.onload = function() {
 
         var myData = JSON.parse(ourRequest.responseText);
