@@ -9,6 +9,7 @@ var button = document.getElementById("btn");
 var weatherInfo = document.getElementById("weather-info");
 
 
+
 // event listener for get weather button
 button.addEventListener("click", () => {
 
@@ -47,15 +48,16 @@ function renderHTML(data){
     const weatherDescription = data.weather[0].description;
     const temperature = data.main.temp;
     const windSpeed = data.wind.speed;
+    const city = data.name;
+
 
     // converting temperature to celsius because openweatherapi uses kelvin
     const temperatureCelsius = (temperature - 273.15).toFixed(2);
 
     // display weather info using html string with string interpolation
     const weatherHTML = `
-    <p>Weather: ${weatherDescription}</p>
-    <p>Temperature: ${temperatureCelsius} °C</p>
-    <p>Wind speed: ${windSpeed} m/s</p>`;
-
+    <p>The weather in ${city} is ${weatherDescription}.</p>
+    <p>The temperature is ${temperatureCelsius}°C with a wind speed of ${windSpeed}m/s.</p>
+    `;
     weatherInfo.innerHTML = weatherHTML;
 }
